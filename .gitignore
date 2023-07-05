@@ -1,7 +1,0 @@
-*.weights
-*.onnx
-*.pb
-*.pt
-yolov8n_saved_model/
-yolov8n_web_model/
-yolov8-tfjs/
