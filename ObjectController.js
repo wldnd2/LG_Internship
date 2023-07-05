@@ -11,7 +11,7 @@ let model;
 app.post('/test', upload.single('video'), async (req, res) => {
     // Load the model
     if (!model) {
-        model = await tf.loadGraphModel('file://path/to/your/tfjs_model/model.json');
+        model = await tf.loadGraphModel('./model.json');
     }
   
     // Open the video file
