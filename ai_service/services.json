@@ -1,0 +1,9 @@
+{
+  "id": "com.ai.test.app.service",
+  "description": "HelloWorld Service",
+  "services": [
+    {
+      "name": "com.ai.test.app.service"
+    }
+  ]
+}
