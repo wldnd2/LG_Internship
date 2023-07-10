@@ -1,0 +1,61 @@
+<!--
+Copyright (c) 2020-2022 LG Electronics Inc.
+
+SPDX-License-Identifier: Apache-2.0
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Key Event Sample App</title>
+
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- Response window CSS -->
+  <link href="response-window.css" rel="stylesheet" type="text/css" />
+  <!-- FontAwesome icons -->
+  <script src="https://kit.fontawesome.com/f1d3d605b6.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+    <section class="section">
+      <div class="columns">
+        <div class="column">
+          <h1 class="title">
+            webOS OSE Sample App
+          </h1>
+          <p class="subtitle">
+            Peripheral Management: GPIO
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="tile is-ancestor">
+        <!-- using media capture and stream API -->
+        <div class="tile">
+          <div class="tile is-parent is-vertical">
+            <article class="tile box is-child">
+              <h2 class="title">GPIO Control</h2>
+              <p class="subtitle">open/close the GPIO</p>
+              <button id="js-peripheral-open-btn" class="button is-success" data-flag="closed">
+                <p>Open</p>
+              </button>
+              <button id="js-peripheral-close-btn" class="button is-success" data-flag="open">
+                <p>Close</p>
+              </button>
+            </article>
+          </div>
+        </div>
+        <!-- display panel for log and messages   -->
+        <div class="tile is-6">
+          <div class="tile box is-parent is-vertical">
+              <h2 class="title">Log</h2>
+              <pre style="height: 100%;"><code id="response-window" class="language-json"></code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  </html>
