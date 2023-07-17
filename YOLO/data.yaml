@@ -1,5 +1,5 @@
 train: /content/Datasets/train/images
 val: /content/Datasets/valid/images
 
-nc: 11
-names: ['Apple', 'Apricot', 'Asparagus', 'Aubergine', 'Avocado', 'Banana', 'Beetroot', 'Blueberry', 'Broccoli', 'Cabbage', 'Carrot', ]
+nc: 16
+names: ['Apple', 'Aubergine', 'BeanSprouts', 'BellPepper', 'brocccoli', 'Cabbage', 'Carrot', 'Chicken', 'Cucumber', 'Leak', 'Onion', 'Pepper', 'Pork', 'Pumpkin', 'Radish', 'SweetPotato' ] 
