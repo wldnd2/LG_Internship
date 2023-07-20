@@ -6,19 +6,23 @@ import Button from '@enact/ui/Button';
 import css from './MainView.module.less';
 
 const SelectingPopup = ({ open, onClose }) => {
-  const ingredients = [...Array(10).keys()].map((i) => i + 1);
+  const ingredients = [...Array(21).keys()].map((i) => i + 1);
 
   return (
     <Popup open={open} onClose={onClose}>
-      <h1>Select Ingredient</h1>
-        <div className={css.content}>
-          <div className={css.list}>
-            {ingredients.map((ingredient, index) => (
-            <ImageItem key={index}>{ingredient}</ImageItem>
+      <div className={css.content}>
+        <h2 className={css.heading}>
+          Ingredient Selection
+        </h2>
+        <div className={css.list}>
+          {ingredients.map((ingredient, index) => (
+            <ImageItem key={index} className={css.item}>
+              {ingredient}
+            </ImageItem>
           ))}
-          </div>
         </div>
-        <Button onClick={onClose}>OK</Button>
+      </div>
+      <Button onClick={onClose}>OK</Button>
     </Popup>
   );
 };
