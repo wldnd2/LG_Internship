@@ -1,0 +1,25 @@
+.MainPage .Base {
+    display: flex;
+    justify-content: space-between;
+  }
+  .MainPage .MainListBase {
+    flex-basis: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .MainPage .RecipeListBase {
+    flex-basis: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .MainPage .MainListBase .ListCatalog{
+    display: flex;
+    justify-content: space-between;
+}
+  .Title{
+    align-items: center;
+  }

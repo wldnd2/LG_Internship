@@ -1,0 +1,22 @@
+.ListEditPage .Base {
+  display: flex;
+  justify-content: space-between;
+}
+.ListEditPage .AddListBase {
+  flex-basis: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.ListEditPage .RemoveListBase {
+  flex-basis: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Title{
+  align-items: center;
+}
