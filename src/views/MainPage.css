@@ -18,6 +18,7 @@
   }
   .MainPage .MainListBase .ListCatalog{
     display: flex;
+    align-items: left;
     justify-content: space-between;
 }
   .Title{

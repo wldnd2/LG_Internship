@@ -6,18 +6,26 @@ import {useCallback} from 'react';
 import Rangepicker from '@enact/sandstone/RangePicker'
 import Checkbox from '@enact/sandstone/Checkbox';
 import css from './PatternList.module.less';
-import Button from '@enact/ui/Button';
 
-const items = Array.from(new Array(1000)).map((n, i) => `Item  ${('00' + i).slice(-3)}`);
+const items = Array.from(new Array(16)).map((n, i) => `Item  ${('00' + i).slice(-3)}`);
 
 const PatternList = ({id, onClick, ...rest}) => {
 	const renderItem = useCallback(({index, ...restProps}) => (
-		<div className='ListItem'>
-			<Item {...restProps}>
-				<Checkbox></Checkbox>
+		<div className={css.ListItem}
+			style={{
+				display: 'flex',
+				alignItems: 'center',
+			}}>
+			<Checkbox></Checkbox>
+			<Item {...restProps} role={null} style={{ width: '250px' }}>
 				{items[index]}
-				<Rangepicker defaultValue={0} min={0} max={100}></Rangepicker>
 			</Item>
+			<div className='Count'>
+				0
+			</div>
+			<div className='Duration'>
+				0
+			</div>
 		</div>
 		
 	), [onClick]);

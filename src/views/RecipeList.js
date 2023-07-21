@@ -4,13 +4,25 @@ import ri from '@enact/ui/resolution';
 import PropTypes from 'prop-types';
 import {useCallback} from 'react';
 import css from './PatternList.module.less';
+import ImageItem from '@enact/sandstone/ImageItem';
 
 const items = Array.from(new Array(3)).map((n, i) => `Item  ${('00' + i).slice(-3)}`);
 
 const RecipeList = ({id, onClick, ...rest}) => {
 	const renderItem = useCallback(({index, ...restProps}) => (
-		<div className='ListItem'>
-			<Item {...restProps}>
+		<div className={css.ListItem}>
+			<div>
+				<ImageItem className={css.item}
+					style={{
+						width:'30%',
+					}}>
+				</ImageItem>
+			</div>
+			<Item {...restProps} 
+				style={{ 
+					width: '250px',
+					alignItems: 'right',
+			 	}}>
 				{items[index]}
 			</Item>
 
@@ -25,7 +37,7 @@ const RecipeList = ({id, onClick, ...rest}) => {
 			dataSize={items.length}
 			id={id}
 			itemRenderer={renderItem}
-			itemSize={ri.scale(144)}
+			itemSize={ri.scale(250)}
 			spotlightId={id}
 		/>
 	);
