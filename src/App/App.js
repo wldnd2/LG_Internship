@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import kind from "@enact/core/kind";
 import { Panels } from "@enact/sandstone/Panels";
 import Routable, { Route } from "@enact/ui/Routable";
@@ -9,10 +9,9 @@ import "./attachErrorHandler";
 import ModifyListPopup from "../components/ModifyListPopup";
 import css from "./App.module.less";
 import SelectingPopup from "../components/SelectingPopup";
+import { MonitorOn } from "../hook/services";
 
-const Views = Routable({ navigate: "onNavigate" }, ({ children }) => (
-  <div>{children}</div>
-));
+const Views = Routable({ navigate: "onNavigate" }, ({ children }) => <div>{children}</div>);
 
 const AppBase = kind({
   name: "App",
@@ -26,10 +25,10 @@ const AppBase = kind({
     return (
       <Panels {...props}>
         <Views path={props.path} onNavigate={props.onNavigate}>
-          <Route path="list-edit" component={ListEditPage} onNavigate={props.onNavigate}/>
+          <Route path="list-edit" component={ListEditPage} onNavigate={props.onNavigate} />
           <Route path="main" component={MainPage} />
-		      <Route path="modify" component={ModifyListPopup} onNavigate={props.onNavigate} />
-          <Route path="select" component={SelectingPopup} onNavigate={props.onNavigate}/>
+          <Route path="modify" component={ModifyListPopup} onNavigate={props.onNavigate} />
+          <Route path="select" component={SelectingPopup} onNavigate={props.onNavigate} />
         </Views>
       </Panels>
     );
