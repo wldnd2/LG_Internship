@@ -3,12 +3,9 @@ import VirtualList from '@enact/sandstone/VirtualList';
 import ri from '@enact/ui/resolution';
 import PropTypes from 'prop-types';
 import {useCallback} from 'react';
-import Rangepicker from '@enact/sandstone/RangePicker'
-import Checkbox from '@enact/sandstone/Checkbox';
 import css from './PatternList.module.less';
-import Button from '@enact/ui/Button';
 
-const items = Array.from(new Array(1000)).map((n, i) => `Item  ${('00' + i).slice(-3)}`);
+const items = Array.from(new Array(3)).map((n, i) => `Item  ${('00' + i).slice(-3)}`);
 
 const RecipeList = ({id, onClick, ...rest}) => {
 	const renderItem = useCallback(({index, ...restProps}) => (

@@ -4,14 +4,48 @@
 	height: 100%;
 }
 
+
 .content {
 	display: flex;
-	padding-top: 12px;
-	box-sizing: border-box;
-	flex: 1 0;
-	overflow: hidden;
-}
+	flex-direction: column;
+  }
+  
+  .list {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 1rem;
+	max-height: 70vh;
+	overflow-y: auto;
+  }
+  
+  .item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: lightgray;
+	padding: 0.5rem; /* 패딩 값을 줄였습니다. */
+	border: 1px solid darkgray;
+	font-size: 0.75rem; /* 박스 크기를 줄여 폰트 크기도 조정했습니다. */
+  }
 
-.list {
-	flex: 3;
-}
+  .heading {
+	margin: 0;
+	padding: 1rem;
+	text-align: center;
+  }  
+  
+  .grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 1rem;
+  }
+  
+  .imageItem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: lightgray;
+	padding: 1rem;
+	border: 1px solid darkgray;
+  }
+  
