@@ -2,8 +2,7 @@ import Button from "@enact/sandstone/Button";
 import kind from "@enact/core/kind";
 import { Panel, Header } from "@enact/sandstone/Panels";
 import "./MainPage.css";
-import Popup from "@enact/sandstone/Popup";
-import PatternList from "./PatternList";
+import MainList from "./MainList";
 import PropTypes from "prop-types";
 import ModifyListPopup from "../components/ModifyListPopup";
 import React, { useState } from "react";
@@ -23,23 +22,67 @@ const MainPage = ({ title, onClick, ...rest }) => {
       <Panel {...rest}>
         <div className="Title">
           <Header title="Ingredient List" />
-          <AxiosTest />
         </div>
         <div className="Base">
-          <div className="MainListBase">
+          <div
+            className="MainListBase"
+            style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}
+          >
             <h2 className="MainListName">Main Ingredient List</h2>
-            <div className="ListCatalog">
-              <CheckBox></CheckBox>
-              <div>|| Name |</div>
-              <div>| Count |</div>
-              <div>| Duration ||</div>
+            <div
+              className="ListCatalog"
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <CheckBox style={{ marginLeft: "4px" }}></CheckBox>
+              <div
+                style={{
+                  margin: "20px",
+                  width: "200px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                Name
+              </div>
+              <div
+                style={{
+                  margin: "20px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                Count
+              </div>
+              <div
+                style={{
+                  margin: "20px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                Duration
+              </div>
             </div>
-            <PatternList id={title} index={rest["data-index"]} onClick={onClick} />
+            <MainList id={title} index={rest["data-index"]} onClick={onClick} />
             <div>
-              <Button onClick={togglePopup}>Edit</Button>
+              <Button onClick={togglePopup} size="small"
+              style={{
+                marginTop : '5%',
+              }}>
+                Edit
+              </Button>
             </div>
           </div>
-          <div className="RecipeListBase">
+          <div
+            className="RecipeListBase"
+            style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}
+          >
             <h2 className="RecipeListName">Recipe List</h2>
             <RecipeList id={title} index={rest["data-index"]} onClick={onClick} />
           </div>

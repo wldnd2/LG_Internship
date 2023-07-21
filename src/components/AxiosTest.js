@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import Button from "@enact/ui/Button";
 import clientApi from "../api/axios";
 /* eslint-disable */
-var bridge = new WebOSServiceBridge();
+// var bridge = new WebOSServiceBridge();
 const AxiosTest = ({ cities, selectedCountry, ...rest }) => {
   const [test, setTest] = useState();
   const getTest = () => {

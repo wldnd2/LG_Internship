@@ -21,7 +21,10 @@ const SelectingPopup = ({ open, onClose }) => {
           ))}
         </div>
       </div>
-      <Button onClick={onClose}>OK</Button>
+      <Button onClick={onClose} style={{
+        margin : '10px',
+        marginTop : '20px',
+      }}>OK</Button>
     </Popup>
   );
 };

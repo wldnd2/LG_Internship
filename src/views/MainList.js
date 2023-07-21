@@ -16,14 +16,26 @@ const PatternList = ({id, onClick, ...rest}) => {
 				display: 'flex',
 				alignItems: 'center',
 			}}>
-			<Checkbox></Checkbox>
+			<Checkbox style={{marginLeft : '5px'}}></Checkbox>
 			<Item {...restProps} role={null} style={{ width: '250px' }}>
 				{items[index]}
 			</Item>
-			<div className='Count'>
+			<div className='Count' style={{
+					marginLeft : '5%',
+					marginRight : '10%',
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "center",
+                }}>
 				0
 			</div>
-			<div className='Duration'>
+			<div className='Duration'style={{
+					marginLeft : '10%',
+					marginRight : '10%',
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "center",
+                }}>
 				0
 			</div>
 		</div>

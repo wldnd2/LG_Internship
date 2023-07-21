@@ -21,28 +21,39 @@ const ListEditPage = ({ onNavigate, ...rest }) => {
           <Header title='Ingredient List' />
         </div>
         <div className='Base'>
-          <div className='AddListBase'>
+          <div
+            className='AddListBase'
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}
+          >
             <h2 className='AddListName'>Add List</h2>
             <AddList />
-            <div>
-              <Button onClick={togglePopup}>Edit</Button>
-            </div>
+            <Button onClick={togglePopup} size='small'>
+              Edit
+            </Button>
           </div>
-          <div className='RemoveListBase'>
+          <div
+            className='RemoveListBase'
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}
+          >
             <h2 className='RemoveListName'>Remove List</h2>
             <RemoveList />
-            <div>
-              <Button onClick={togglePopup}>Edit</Button>
-            </div>
+            <Button onClick={togglePopup} size='small'>
+              Edit
+            </Button>
           </div>
         </div>
-        <Button onClick={() => onNavigate({ path: 'main' })}>Accept</Button>
+        <Button
+          onClick={() => onNavigate({ path: 'main' })}
+          style={{ marginTop: '30px' }}
+        >
+          Accept
+        </Button>
       </Panel>
-
       <SelectingPopup open={showPopup} onClose={togglePopup} />
     </div>
   );
 };
+
 
 ListEditPage.propTypes = {
   onNavigate: PropTypes.func.isRequired,

@@ -30,12 +30,22 @@ const ModifyListPopup = ({ title, onClick, open, onClose, ...rest }) => {
                     onClick={onClick}
                 />
                 <div>
-                    <Button onClick={togglePopup}>Edit</Button>
+                    <Button onClick={togglePopup}
+                    size='small'
+                    style={{
+                      marginLeft : '0px',
+                    }}
+                    >Edit</Button>
                 </div>
                 </div>
             </div>
             </Panel>
-            <Button onClick={onClose}>OK</Button>
+            <Button onClick={onClose}
+              style={{
+                marginBottom : '10px',
+                marginTop : '40px',
+                marginLeft : '50px',
+              }}>OK</Button>
         </div>
       <SelectingPopup open={showPopup} onClose={togglePopup} />
     </Popup>
