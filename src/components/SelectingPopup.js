@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import Popup from '@enact/sandstone/Popup';
 import ImageItem from '@enact/sandstone/ImageItem';
@@ -6,7 +5,7 @@ import Button from '@enact/ui/Button';
 import css from './MainView.module.less';
 
 const SelectingPopup = ({ open, onClose }) => {
-  const ingredients = [...Array(21).keys()].map((i) => i + 1);
+  const ingredients = [...Array(16).keys()].map((i) => i + 1);
 
   return (
     <Popup open={open} onClose={onClose}>

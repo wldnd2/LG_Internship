@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import kind from "@enact/core/kind";
 import { Panels } from "@enact/sandstone/Panels";
 import Routable, { Route } from "@enact/ui/Routable";

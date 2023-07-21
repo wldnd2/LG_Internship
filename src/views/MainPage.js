@@ -1,8 +1,6 @@
 import Button from '@enact/sandstone/Button';
-import kind from '@enact/core/kind';
 import { Panel, Header } from '@enact/sandstone/Panels';
 import './MainPage.css';
-import Popup from '@enact/sandstone/Popup';
 import PatternList from './PatternList';
 import PropTypes from 'prop-types';
 import ModifyListPopup from '../components/ModifyListPopup';
