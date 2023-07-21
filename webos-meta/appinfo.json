@@ -1,12 +1,17 @@
 {
-	"id": "view",
-	"version": "1.0.0",
-	"vendor": "LGE-SVL",
-	"type": "web",
-	"main": "index.html",
-	"title": "Enact App Template",
-	"icon": "icon.png",
-	"miniicon": "icon-mini.png",
-	"largeIcon": "icon-large.png",
-	"uiRevision": 2
+  "id": "com.test.webapp",
+  "version": "1.0.0",
+  "vendor": "LGE-SVL",
+  "type": "web",
+  "main": "index.html",
+  "title": "webApp test",
+  "icon": "thisIcon.Jpg",
+  "uiRevision": 2,
+  "requiredPermissions": [
+    "time.query",
+    "activity.operation",
+    "notification.operation",
+    "peripheralmanager.gpio.operation",
+    "com.test.webapp.service.group"
+  ]
 }
