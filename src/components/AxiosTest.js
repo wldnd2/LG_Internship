@@ -2,6 +2,7 @@ import { Cell, Row } from "@enact/ui/Layout";
 import { useCallback, useEffect, useState } from "react";
 import Button from "@enact/ui/Button";
 import clientApi from "../api/axios";
+import projectApi from "../api/projectApi";
 /* eslint-disable */
 // var bridge = new WebOSServiceBridge();
 const AxiosTest = ({ cities, selectedCountry, ...rest }) => {
@@ -71,6 +72,19 @@ const AxiosTest = ({ cities, selectedCountry, ...rest }) => {
     };
     bridge.call(url, JSON.stringify(params));
   };
+
+  const onGetIngredientList = () => {
+    projectApi
+      .getIngredients()
+      .then((Response) => {
+        console.log(Response.data);
+        setTest(Response.data);
+      })
+      .catch((Error) => {
+        console.log(Error);
+      });
+  };
+
   return (
     <Row {...rest}>
       <Cell>
@@ -83,6 +97,8 @@ const AxiosTest = ({ cities, selectedCountry, ...rest }) => {
         <Button onClick={callMyService}>루나버스 테스트</Button>
         <br />
         <Button onClick={pythonProcess}>ai 테스트</Button>
+        <br />
+        <Button onClick={onGetIngredientList}>api 테스트 {test}</Button>
         <br />
       </Cell>
     </Row>

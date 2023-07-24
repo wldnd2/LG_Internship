@@ -9,6 +9,7 @@ import React, { useState } from "react";
 import CheckBox from "@enact/sandstone/Checkbox";
 import RecipeList from "./RecipeList";
 import AxiosTest from "../components/AxiosTest";
+import useListStore from "../store/useListStore";
 
 const MainPage = ({ title, onClick, ...rest }) => {
   const [showPopup, setShowPopup] = useState(false);
@@ -17,12 +18,15 @@ const MainPage = ({ title, onClick, ...rest }) => {
     setShowPopup(!showPopup);
   };
 
+  const { count, IngredientList, setIngredientList, inc } = useListStore();
+  console.log("count", count);
   return (
     <div className="MainPage">
       <Panel {...rest}>
         <div className="Title">
           <Header title="Ingredient List" />
         </div>
+        <AxiosTest />
         <div className="Base">
           <div
             className="MainListBase"
