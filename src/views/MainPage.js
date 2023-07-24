@@ -9,6 +9,7 @@ import React, { useState } from "react";
 import CheckBox from "@enact/sandstone/Checkbox";
 import RecipeList from "./RecipeList";
 import AxiosTest from "../components/AxiosTest";
+import useListStore from "../store/useListStore";
 
 const MainPage = ({ title, onClick, ...rest }) => {
   const [showPopup, setShowPopup] = useState(false);
@@ -17,17 +18,17 @@ const MainPage = ({ title, onClick, ...rest }) => {
     setShowPopup(!showPopup);
   };
 
+  const { count, IngredientList, setIngredientList, inc } = useListStore();
+  console.log("count", count);
   return (
     <div className="MainPage">
       <Panel {...rest}>
         <div className="Title">
           <Header title="Ingredient List" />
         </div>
+        <AxiosTest />
         <div className="Base">
-          <div
-            className="MainListBase"
-            style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}
-          >
+          <div className="MainListBase" style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
             <h2 className="MainListName">Main Ingredient List</h2>
             <div
               className="ListCatalog"
@@ -71,18 +72,18 @@ const MainPage = ({ title, onClick, ...rest }) => {
             </div>
             <MainList id={title} index={rest["data-index"]} onClick={onClick} />
             <div>
-              <Button onClick={togglePopup} size="small"
-              style={{
-                marginTop : '5%',
-              }}>
+              <Button
+                onClick={togglePopup}
+                size="small"
+                style={{
+                  marginTop: "5%",
+                }}
+              >
                 Edit
               </Button>
             </div>
           </div>
-          <div
-            className="RecipeListBase"
-            style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}
-          >
+          <div className="RecipeListBase" style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
             <h2 className="RecipeListName">Recipe List</h2>
             <RecipeList id={title} index={rest["data-index"]} onClick={onClick} />
           </div>

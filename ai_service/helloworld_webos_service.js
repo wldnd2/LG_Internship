@@ -9,6 +9,7 @@ const logHeader = "[" + pkgInfo.name + "]";
 
 let flag = 0;
 let doInitGPIO = true;
+let doInitGPIO2 = true;
 
 // 등록되고 다른 어플리케이션에서 실행하는 예제
 service.register("hello", (message) => {
@@ -22,6 +23,7 @@ service.register("hello", (message) => {
 
 service.register("python_process", function (message) {
   console.log("call python_process");
+  LEDon();
   const net1 = spawn("python3", ["CAM.py"]);
   net1.stdout.on("data", function (data) {
     const result = data.toString();
@@ -36,6 +38,7 @@ service.register("python_process", function (message) {
       });
     });
   });
+  LEDoff();
 });
 
 //Toast function
@@ -113,6 +116,29 @@ service.register("monitorOn", (msg) => {
     doInitGPIO = false;
   }
 
+  if (doInitGPIO2) {
+    let url = "luna://com.webos.service.peripheralmanager/gpio/open";
+    let params = {
+      pin: "gpio4",
+    };
+
+    service.call(url, params, (m2) => {
+      console.log(logHeader, m2);
+    });
+
+    url = "luna://com.webos.service.peripheralmanager/gpio/setDirection";
+    params = {
+      pin: "gpio4",
+      direction: "outLow",
+    };
+
+    service.call(url, params, (m2) => {
+      console.log(logHeader, m2);
+    });
+
+    doInitGPIO2 = false;
+  }
+
   //heartbeat
   const sub = service.subscribe("luna://com.test.webapp.service/heartbeat", { subscribe: true });
   const max = 120;
@@ -187,3 +213,26 @@ heartbeat.on("cancel", function (message) {
     heartbeatinterval = undefined;
   }
 });
+
+//LED 키기
+function LEDon() {
+  let url = "luna://com.webos.service.peripheralmanager/gpio/setValue";
+  let params = {
+    pin: "gpio4",
+    value: "high",
+  };
+  service.call(url, params, (m2) => {
+    console.log(logHeader, m2);
+  });
+  // LED 끄기
+  function LEDoff() {
+    let url = "luna://com.webos.service.peripheralmanager/gpio/setValue";
+    let params = {
+      pin: "gpio4",
+      value: "low",
+    };
+    service.call(url, params, (m2) => {
+      console.log(logHeader, m2);
+    });
+  }
+}
