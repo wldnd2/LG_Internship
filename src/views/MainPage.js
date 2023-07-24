@@ -26,9 +26,15 @@ const MainPage = ({ title, onClick, ...rest }) => {
         <div className="Base">
           <div
             className="MainListBase"
-            style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+            }}
           >
-            <h2 className="MainListName">Main Ingredient List</h2>
+            <h2 className="MainListName" style={{ alignSelf: "center" }}>
+              Main Ingredient List
+            </h2>
             <div
               className="ListCatalog"
               style={{
@@ -71,19 +77,23 @@ const MainPage = ({ title, onClick, ...rest }) => {
             </div>
             <MainList id={title} index={rest["data-index"]} onClick={onClick} />
             <div>
-              <Button onClick={togglePopup} size="small"
-              style={{
-                marginTop : '5%',
-              }}>
+              <Button onClick={togglePopup} size="small">
                 Edit
               </Button>
+              <Button size="small">All Recipes</Button>
             </div>
           </div>
           <div
             className="RecipeListBase"
-            style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+            }}
           >
-            <h2 className="RecipeListName">Recipe List</h2>
+            <h2 className="RecipeListName" style={{ alignSelf: "center" }}>
+              Recipe List
+            </h2>
             <RecipeList id={title} index={rest["data-index"]} onClick={onClick} />
           </div>
         </div>
