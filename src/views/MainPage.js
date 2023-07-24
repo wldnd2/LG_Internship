@@ -8,8 +8,6 @@ import ModifyListPopup from "../components/ModifyListPopup";
 import React, { useState } from "react";
 import CheckBox from "@enact/sandstone/Checkbox";
 import RecipeList from "./RecipeList";
-import AxiosTest from "../components/AxiosTest";
-import useListStore from "../store/useListStore";
 
 const MainPage = ({ title, onClick, ...rest }) => {
   const [showPopup, setShowPopup] = useState(false);
@@ -18,72 +16,32 @@ const MainPage = ({ title, onClick, ...rest }) => {
     setShowPopup(!showPopup);
   };
 
-  const { count, IngredientList, setIngredientList, inc } = useListStore();
-  console.log("count", count);
   return (
     <div className="MainPage">
       <Panel {...rest}>
         <div className="Title">
           <Header title="Ingredient List" />
         </div>
-        <AxiosTest />
-        <div className="Base">
+        <div className="Base" style={{ display: "flex", flexDirection: "row" }}>
           <div
             className="MainListBase"
             style={{
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
+              marginRight: '15px' // Add some margin between the two lists
             }}
           >
-            <h2 className="MainListName" style={{ alignSelf: "center" }}>
-              Main Ingredient List
-            </h2>
-            <div
-              className="ListCatalog"
-              style={{
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
+            <h2 className="MainListName">Main Ingredient List</h2>
+            <div className="ListCatalog" style={{ display: "flex", alignItems: "center" }}>
               <CheckBox style={{ marginLeft: "4px" }}></CheckBox>
-              <div
-                style={{
-                  margin: "20px",
-                  width: "200px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                Name
-              </div>
-              <div
-                style={{
-                  margin: "20px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                Count
-              </div>
-              <div
-                style={{
-                  margin: "20px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                Duration
-              </div>
+              <div style={{ margin: "20px", width: "200px", display: "flex", alignItems: "center", justifyContent: "center" }}>Name</div>
+              <div style={{ margin: "20px", display: "flex", alignItems: "center", justifyContent: "center" }}>Count</div>
+              <div style={{ margin: "20px", display: "flex", alignItems: "center", justifyContent: "center" }}>Duration</div>
             </div>
             <MainList id={title} index={rest["data-index"]} onClick={onClick} />
             <div>
-              <Button onClick={togglePopup} size="small">
-                Edit
-              </Button>
+              <Button onClick={togglePopup} size="small">Edit</Button>
               <Button size="small">All Recipes</Button>
             </div>
           </div>
@@ -95,9 +53,7 @@ const MainPage = ({ title, onClick, ...rest }) => {
               alignItems: "flex-start",
             }}
           >
-            <h2 className="RecipeListName" style={{ alignSelf: "center" }}>
-              Recipe List
-            </h2>
+            <h2 className="RecipeListName">Recipe List</h2>
             <RecipeList id={title} index={rest["data-index"]} onClick={onClick} />
           </div>
         </div>
