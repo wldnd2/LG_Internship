@@ -2,6 +2,7 @@ package LG_Internship.Server.Recipe;
 
 import LG_Internship.Server.Recipe_Ingredient.RecipeIngredientEntity;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,20 +14,25 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class RecipeEntity {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private long recipeId;
 
+    private String recipeName;
     @Column(length = 3000)
-    private String recipe_description;
+    private String recipeDescription;
+    // Photo and site URL
+    private String recipeUrl;
+    private String recipePhoto;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "recipe")
     private List<RecipeIngredientEntity> recipeIngredientList = new ArrayList<>();
 
-//    // Photo and site URL
-//    private String recipe_url;
-//    private String recipe_photo;
+    public void addRecipeIngredient(RecipeIngredientEntity recipeIngredient){
+        this.recipeIngredientList.add(recipeIngredient);
+    }
 
 }
