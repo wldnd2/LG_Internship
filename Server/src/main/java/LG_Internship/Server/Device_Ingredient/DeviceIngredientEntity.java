@@ -4,8 +4,11 @@ package LG_Internship.Server.Device_Ingredient;
 import LG_Internship.Server.Device.DeviceEntity;
 import LG_Internship.Server.Ingredient.IngredientEntity;
 import lombok.*;
+import net.bytebuddy.asm.Advice;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity(name = "DeviceIngredient")
 @NoArgsConstructor
@@ -32,7 +35,9 @@ public class DeviceIngredientEntity {
 
     private int amount;
 
+    private LocalDate validDate;
     public void setAmount(int amount) {
         this.amount = amount;
     }
+    public void setValidDate( LocalDate validDate ) { this.validDate = validDate; }
 }
