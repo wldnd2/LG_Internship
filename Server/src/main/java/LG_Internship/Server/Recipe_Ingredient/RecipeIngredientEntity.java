@@ -19,6 +19,7 @@ import java.util.List;
 public class RecipeIngredientEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -28,7 +29,5 @@ public class RecipeIngredientEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "recipe_id")
     private RecipeEntity recipe;
-
-    private int amount;
 
 }
